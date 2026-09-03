@@ -5,7 +5,10 @@ A simple picture-book map of **how people use AI** — not how models are built 
 **Story:** Luma, a small fox with a lantern, leaves a crowded chat booth and learns the harbor: prompts, models, agents, crews, skills, harnesses, MCP, and loops.
 
 - Live HTML: [GitHub Pages](https://wahrsoft.github.io/illustrated-guide-to-using-ai/)
-- Book page: [docs/index.html](docs/index.html)
+- PDF: [latest release download](https://github.com/WahrSoft/illustrated-guide-to-using-ai/releases/latest/download/Illustrated_Guide_to_Using_AI.pdf)
+- Releases: [github.com/WahrSoft/illustrated-guide-to-using-ai/releases](https://github.com/WahrSoft/illustrated-guide-to-using-ai/releases)
+
+A push or merge to `main` that touches `src/`, `images/`, or the PDF workflow rebuilds the book and replaces the **book** release asset.
 
 ## Repository layout
 
@@ -18,7 +21,7 @@ src/story.md             Story and panel copy
 requirements.txt         Python deps for the PDF builder
 ```
 
-## Rebuild the PDF
+## Rebuild the PDF locally
 
 ```bash
 python3 -m venv .venv
@@ -29,16 +32,11 @@ python src/build_pdf.py
 
 Output: `book/Illustrated_Guide_to_Using_AI.pdf`
 
+The builder looks for Libre Baskerville / Lora / Playfair, then Liberation or DejaVu, then macOS Times/Georgia, then ReportLab’s built-in Times.
+
 ## Publish the HTML
 
-The book is `docs/index.html`. A root `index.html` only redirects there so Pages never falls back to this README.
-
-Set **Settings → Pages** to:
-
-- Source: **Deploy from a branch**
-- Branch: `main` / folder: `/docs`
-
-That serves the illustrated book at the site root. `docs/.nojekyll` stops Jekyll from promoting a README.
+The book is `docs/index.html`. Set **Settings → Pages** to `main` / `/docs`.
 
 ## License
 
