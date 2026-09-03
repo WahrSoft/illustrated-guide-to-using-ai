@@ -52,7 +52,7 @@ Luma watched dozens of lanterns get fed at the same time.
 Nobody waited forever.
 Nobody burned the soup.
 
-vLLM is software that *serves* large models quickly. It batches many requests together and manages memory so one model can help lots of people at once. The model is the cook. vLLM is the busy restaurant.
+vLLM is a serving kitchen for models you host yourself. It batches many requests and manages memory so one cook can feed a crowd. Most people talking to a frontier model are not in Vee’s kitchen. Those lions are too big for one stove: their layers are spread across four or five huge ships, the recipes are compiled into tensors, and almost no waiters (CPU work) run around between plates. You meet vLLM when you call a cluster that chose that kitchen — not when you open a chat box to a frontier model.
 
 ---
 
@@ -103,6 +103,23 @@ She was still a question.
 Now she was a question that could work.
 
 An AI agent is a model wrapped in permission to use tools. It plans a step, does the step, sees what happened, and continues until the job is done or it must ask a human.
+
+---
+
+### The Harbor Crew — Supervisors and Crews
+
+On a bigger job the captain did not send Luma alone.
+He climbed onto a crate marked SUPERVISOR and pointed.
+
+“One backpack can pack a basket,” he said.
+“A picnic for the whole dock needs a crew. I assign. I check. I stop the work when it is good enough. You do not let every lantern invent the plan.”
+
+A mouse checked the list.
+A raccoon read the map.
+A sparrow wrote the invitation.
+Luma held the lantern.
+
+Teams usually work this way: a supervisor (sometimes called a boss or orchestrator) directs specialist agents. A crew is not a pile of chat windows. It is a small company with a captain.
 
 ---
 
@@ -184,11 +201,11 @@ A loop is the heartbeat of an agent. The model reasons, calls a tool, observes t
 
 ### Other Friends at the Harbor
 
-**Context Window** — Luma’s satchel. It only holds so many pages at once. When it is full, old pages must be folded away.
+**Context Window** — Luma’s satchel. It only holds so many pages at once. When it is full, old pages must be folded away. When satchels grew to about 200,000 pages, stuffing a few fetched scraps in first became less useful than just looking things up.
 
 **Memory** — jars of glowing beads on a shelf. Some beads last for one afternoon. Some last for seasons.
 
-**RAG** — a pelican librarian who flies out, fetches the exact page Luma needs, and drops it into the satchel.
+**Vector store** — a map cabinet on the dock. You keep notes nearby and search them directly. The old pelican trick (RAG) made you fetch pages with the *same* embedding the model used to tokenize, which was fussy and is largely left behind.
 
 **Tools** — hammers, keys, and looking-glasses. Skills teach *how*. Tools *do*.
 
@@ -196,7 +213,7 @@ A loop is the heartbeat of an agent. The model reasons, calls a tool, observes t
 
 **Human-in-the-loop** — a grown-up on the dock. For big choices, Luma waves. The grown-up waves back.
 
-**Multi-agent friends** — other lanterns with their own backpacks. One packs food. One checks the weather. One writes the invitation.
+**Crews** — other lanterns with their own backpacks, plus a supervisor who assigns and checks. One packs food. One checks the weather. One writes the invitation.
 
 ---
 
