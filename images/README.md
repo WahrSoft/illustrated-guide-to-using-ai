@@ -2,15 +2,21 @@
 
 Canonical drawings for *The Illustrated Guide to Using AI*.
 
-GitHub's connector cannot store raw JPEGs in one shot, so each drawing is also stored as a sibling `.jpg.b64` file (standard base64 of the JPEG).
+The GitHub connector used to seed this repo truncates files around 2KB, so each JPEG is stored as numbered base64 parts:
 
-Restore the binaries:
+```
+images/cover-harbor-cast.jpg.b64.01
+images/cover-harbor-cast.jpg.b64.02
+...
+```
+
+Restore binaries (also copies into `docs/images/` for Pages):
 
 ```bash
 python3 scripts/decode_images.py
 ```
 
-That writes `images/*.jpg` and copies them to `docs/images/` for the HTML book.
+Full-resolution originals and the print PDF live in the local working copy / release zip if you need them for `src/build_pdf.py`.
 
 | File | Scene |
 |---|---|
