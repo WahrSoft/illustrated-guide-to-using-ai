@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Illustrated Guide to Using AI</title>
-  <meta name="description" content="A simple picture-book map of prompts, models, agents, skills, harnesses, MCP, and loops for professionals and leaders.">
+  <meta name="description" content="A simple picture-book map of prompts, models, agents, crews, skills, harnesses, MCP, and loops for professionals and leaders.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -35,11 +35,7 @@
       padding: 2.2rem 1.25rem 1rem;
       text-align: center;
     }
-    header.hero img {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
-    }
+    header.hero img { width: 100%; border-radius: 12px; display: block; }
     h1 {
       font-family: "Playfair Display", Georgia, serif;
       color: var(--navy);
@@ -60,11 +56,7 @@
     }
     nav.toc a { text-decoration: none; border-bottom: 1px solid var(--rule); }
     article { max-width: 980px; margin: 0 auto; padding: 0 1.25rem 3rem; }
-    section.page {
-      margin: 0 0 2.8rem;
-      padding-bottom: 2.2rem;
-      border-bottom: 1px solid var(--rule);
-    }
+    section.page { margin: 0 0 2.8rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--rule); }
     section.page h2 {
       font-family: "Playfair Display", Georgia, serif;
       color: var(--navy);
@@ -72,11 +64,7 @@
       margin: 0 0 0.8rem;
     }
     figure { margin: 0 0 1rem; }
-    figure img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-    }
+    figure img { width: 100%; border-radius: 10px; display: block; }
     .panel {
       background: var(--panel);
       border-top: 3px solid var(--teal);
@@ -89,25 +77,12 @@
     .panel strong { color: var(--teal); letter-spacing: 0.02em; font-size: 0.78rem; }
     .panel.coral strong { color: var(--coral); }
     .panel.mustard strong { color: #9a7420; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 0.85rem;
-    }
-    .card {
-      background: #e8f2f3;
-      border-radius: 8px;
-      padding: 0.9rem 1rem;
-    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.85rem; }
+    .card { background: #e8f2f3; border-radius: 8px; padding: 0.9rem 1rem; }
     .card:nth-child(even) { background: #f8f0dc; }
     .card h3 { margin: 0 0 0.35rem; font-size: 1rem; color: var(--teal); }
     .end { text-align: center; font-style: italic; color: var(--teal); }
-    footer {
-      text-align: center;
-      padding: 1rem 1.25rem 2.5rem;
-      color: #6b6458;
-      font-size: 0.85rem;
-    }
+    footer { text-align: center; padding: 1rem 1.25rem 2.5rem; color: #6b6458; font-size: 0.85rem; }
     .actions { margin: 0.8rem 0 0; }
     .actions a {
       display: inline-block;
@@ -121,7 +96,6 @@
     }
     dl.glossary dt { color: var(--coral); font-weight: 700; margin-top: 0.55rem; }
     dl.glossary dd { margin: 0.1rem 0 0 0; }
-    img.missing { background: #eee; min-height: 120px; }
   </style>
 </head>
 <body>
@@ -143,6 +117,7 @@
     <a href="#slm">SLM</a>
     <a href="#sdm">SDM</a>
     <a href="#agents">Agents</a>
+    <a href="#crews">Crews</a>
     <a href="#skills">Skills</a>
     <a href="#harness">Harnesses</a>
     <a href="#mcp">MCP</a>
@@ -188,7 +163,8 @@
       <h2>The Busy Serving Kitchen — vLLM</h2>
       <figure><img src="images/vllm-kitchen.jpg" alt="An octopus with oven mitts serving many plates at a harbor kitchen"></figure>
       <p>Behind Leo’s library was a kitchen that never slept. An octopus named Vee wore eight oven mitts and danced between stoves. “Leo is the cook,” said Vee. “I am the serving kitchen. When many questions arrive at once, I line them up, share the ovens fairly, and send answers out hot.”</p>
-      <div class="panel coral"><strong>vLLM — FAST MODEL SERVING</strong><br>Software that serves large models quickly. It batches many requests together and manages memory so one model can help lots of people at once. The model is the cook. vLLM is the busy restaurant kitchen.</div>
+      <p>Luma asked if every lion ate here. “Only the ones who live in this harbor,” said Vee. “The mountain lions — the frontier models — are too big for my stoves. Their layers ride four or five huge ships. Their recipes are already compiled. Almost no waiters run between plates.”</p>
+      <div class="panel coral"><strong>vLLM — A SERVING KITCHEN, NOT THE FRONTIER</strong><br>vLLM batches requests and manages memory for models you host yourself. Most people talking to a frontier model are not using it. Those models are too large for one kitchen: layers are spread across several H200-class servers, tensors are compiled ahead of time, and there is almost no CPU work in the hot path. You meet vLLM when you call a cluster that chose that stack.</div>
     </section>
 
     <section class="page" id="slm">
@@ -211,7 +187,15 @@
       <figure><img src="images/agents-backpack.jpg" alt="An owl captain buckling a tool backpack onto Luma"></figure>
       <p>“Talking is only the first step,” said Captain Context at the harbor. He buckled a backpack onto Luma. Inside were tools: a key, a pencil, a looking-glass, a tiny boat. “An agent does not only answer,” said the captain. “An agent acts.”</p>
       <p>Luma stood taller. She was still a question. Now she was a question that could work.</p>
-      <div class="panel coral"><strong>AGENTS</strong><br>A model wrapped in permission to use tools. It plans a step, does the step, sees what happened, and continues until the job is done — or until it must ask a human.</div>
+      <div class="panel coral"><strong>AGENTS</strong><br>A model wrapped in permission to use tools. It plans a step, does the step, sees what happened, and continues until the job is done — or until it must ask a human. One agent is a worker with a backpack.</div>
+    </section>
+
+    <section class="page" id="crews">
+      <h2>The Harbor Crew — Supervisors</h2>
+      <figure><img src="images/crews-supervisor.jpg" alt="An owl supervisor directing a crew of animal agents packing a picnic"></figure>
+      <p>On a bigger job the captain did not send Luma alone. He climbed onto a crate marked SUPERVISOR and pointed. “One backpack can pack a basket,” he said. “A picnic for the whole dock needs a crew. I assign. I check. I stop the work when it is good enough.”</p>
+      <p>A mouse checked the list. A raccoon read the map. A sparrow wrote the invitation. Luma held the lantern.</p>
+      <div class="panel mustard"><strong>CREWS / SUPERVISORS</strong><br>Teams usually work with a supervisor — a boss or orchestrator — who assigns specialist agents, checks their work, and decides when to stop. A crew is not a pile of chat windows. It is a small company with a captain.</div>
     </section>
 
     <section class="page" id="skills">
@@ -245,13 +229,14 @@
     <section class="page" id="friends">
       <h2>Other Friends at the Harbor</h2>
       <div class="grid">
-        <div class="card"><h3>Context window</h3><p>Luma’s satchel. It only holds so many pages at once.</p></div>
+        <div class="card"><h3>Context window</h3><p>Luma’s satchel. When it grew to ~200k pages, stuffing a few fetched scraps in first mattered less than just looking things up.</p></div>
         <div class="card"><h3>Memory</h3><p>Jars of glowing beads. Some last an afternoon. Some last seasons.</p></div>
+        <div class="card"><h3>Vector store</h3><p>A map cabinet you search directly. Old RAG needed the same embedding the model used to tokenize — fussy, and largely left behind.</p></div>
         <div class="card"><h3>Tools</h3><p>Skills teach how. Tools do.</p></div>
         <div class="card"><h3>Guardrails</h3><p>A painted fence along the cliff. Kind, firm, not optional.</p></div>
         <div class="card"><h3>Human-in-the-loop</h3><p>For big choices, Luma waves. A person waves back.</p></div>
-        <div class="card"><h3>Multi-agent work</h3><p>Other lanterns with their own backpacks, splitting the job.</p></div>
-        <div class="card"><h3>Context engineering</h3><p>Choosing what rides with the ask: examples, files, history, retrieved pages.</p></div>
+        <div class="card"><h3>Crews</h3><p>Specialist agents plus a supervisor who assigns, checks, and stops.</p></div>
+        <div class="card"><h3>Context engineering</h3><p>Choosing what rides with the ask: examples, files, history, live lookups.</p></div>
       </div>
     </section>
 
@@ -281,14 +266,16 @@
         <dt>Prompt engineering</dt><dd>The craft of writing that instruction so it is hard to misread.</dd>
         <dt>Context engineering</dt><dd>Choosing what else rides with the prompt: files, history, retrieved facts.</dd>
         <dt>LLM</dt><dd>Large Language Model — broad general reasoning and text generation.</dd>
-        <dt>vLLM</dt><dd>High-throughput engine for serving large models to many users at once.</dd>
+        <dt>vLLM</dt><dd>Open serving stack for hosted models. Not how frontier models are served — those use compiled tensors across many GPUs, with almost no CPU in the hot path.</dd>
         <dt>SLM</dt><dd>Small Language Model — efficient, often on-device or low-cost.</dd>
         <dt>SDM</dt><dd>Specialized Domain Model — narrow expert for one field or company.</dd>
-        <dt>Agent</dt><dd>Model + tools + loop that acts toward a goal, not only replies.</dd>
+        <dt>Agent</dt><dd>Model + tools + loop that acts toward a goal, not only replies. One worker with a backpack.</dd>
+        <dt>Crew / supervisor</dt><dd>A boss agent that assigns specialist agents, checks work, and stops.</dd>
         <dt>Skill</dt><dd>Reusable playbook an agent can load when the task matches.</dd>
         <dt>Harness</dt><dd>Runtime around the agent: tools, memory, permissions, stop rules.</dd>
         <dt>MCP</dt><dd>Model Context Protocol — a standard way to connect tools and data.</dd>
         <dt>Loop</dt><dd>Reason → act → observe → decide. The agent’s control cycle.</dd>
+        <dt>Vector store</dt><dd>Searchable notes kept beside the model. Replaced most RAG once long context (~200k) made fetch-then-stuff less useful.</dd>
         <dt>Hallucination</dt><dd>A fluent, confident answer that is not true.</dd>
         <dt>Grounding</dt><dd>Tying answers to retrieved sources and live systems.</dd>
         <dt>Evals</dt><dd>Tests that measure whether the system did the job.</dd>
