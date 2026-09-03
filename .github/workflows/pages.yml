@@ -18,10 +18,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Ensure a site root exists
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Decode illustrations into docs/images
         run: |
+          mkdir -p docs/images images
+          python scripts/decode_images.py || true
+          if ls images/*.jpg >/dev/null 2>&1; then
+            cp -f images/*.jpg docs/images/
+          fi
+          echo "docs/images:"
+          ls -la docs/images || true
           test -f docs/index.html
-          ls -la docs
 
       - name: Publish docs to gh-pages
         uses: peaceiris/actions-gh-pages@v4
