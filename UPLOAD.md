@@ -1,19 +1,31 @@
 # Pushing the binary assets
 
-The GitHub connector used to create this repo can write text files, but not multi-megabyte PDFs and JPEGs in one shot.
+The GitHub connector that seeds this repo truncates file bodies around 2KB. Whole JPEGs and the print PDF cannot go up in one API call.
 
-A complete local package is in the working copy: `images/`, `docs/images/`, `docs/index.html`, `src/build_pdf.py`, and `book/Illustrated_Guide_to_Using_AI.pdf`.
+In-repo workaround: store each web JPEG as numbered base64 parts (`images/name.jpg.b64.01`, `.02`, ...) and reassemble with:
 
-From a machine that has this folder:
+```bash
+python3 scripts/decode_images.py
+```
+
+That writes `images/*.jpg` and copies them to `docs/images/` before the Pages workflow publishes `docs/`.
+
+## Status
+
+- `agents-backpack` is fully chunked (parts 01-07) and decodes to a 320x214 web JPEG.
+- The other 12 drawings still need the same treatment or a normal git push of the local binaries.
+
+## Fast path from a machine that has the working copy
 
 ```bash
 git clone https://github.com/WahrSoft/illustrated-guide-to-using-ai.git
 cd illustrated-guide-to-using-ai
-cp -R /path/to/repo/* .
+cp /path/to/local/repo/images/*.jpg images/
+mkdir -p docs/images book
+cp /path/to/local/repo/docs/images/*.jpg docs/images/
+cp /path/to/local/repo/src/build_pdf.py src/
+cp /path/to/local/repo/book/*.pdf book/
 git add images docs book src scripts
-git commit -m "Add illustrations, PDF, HTML book, and rebuild primitives"
+git commit -m "Add illustrations, PDF, and rebuild primitives"
 git push
 ```
-
-Then enable Pages: Settings → Pages → Deploy from branch `main` / `/docs`
-(or allow the Actions workflow in `.github/workflows/pages.yml`).
