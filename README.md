@@ -4,7 +4,7 @@ A simple picture-book map of **how people use AI** — not how models are built 
 
 It is meant for the same job as *The Illustrated Guide to Kubernetes*: give professionals and leaders a shared language they can finish in one sitting.
 
-**Story:** Luma, a small fox with a lantern, leaves a crowded chat booth and learns the harbor: prompts, models, agents, skills, harnesses, MCP, and loops.
+**Story:** Luma, a small fox with a lantern, leaves a crowded chat booth and learns the harbor: prompts, models, agents, crews, skills, harnesses, MCP, and loops.
 
 - Live HTML: [GitHub Pages](https://wahrsoft.github.io/illustrated-guide-to-using-ai/)
 - PDF: [book/Illustrated_Guide_to_Using_AI.pdf](book/Illustrated_Guide_to_Using_AI.pdf)
@@ -15,17 +15,18 @@ It is meant for the same job as *The Illustrated Guide to Kubernetes*: give prof
 |---|---|
 | The folded note | Prompt / prompt engineering |
 | Leo the library lion | LLM |
-| Vee the serving kitchen | vLLM |
+| Vee the serving kitchen | vLLM (self-hosted serving — not frontier) |
 | Scout the pocket mouse | SLM |
 | Dom the shopkeeper | SDM (specialized domain model) |
 | The backpack | Agents |
+| The supervisor crate | Crews / supervisors |
 | Recipe folders | Skills |
 | Safety rigging | Harnesses |
 | Universal docks | MCP |
 | The garden path | Loops |
 | Fog, fences, checklists | Hallucinations, grounding, evals, routing, workflows, cost |
 
-Also covered: context window, memory, RAG, tools, guardrails, human-in-the-loop, multi-agent work, context engineering.
+Also covered: context window, memory, vector stores, tools, guardrails, human-in-the-loop, crews, context engineering.
 
 ## Repository layout
 
@@ -59,8 +60,6 @@ GitHub Pages is configured from the `docs/` folder on `main`.
 1. Repo **Settings → Pages**
 2. Source: **Deploy from a branch**
 3. Branch: `main` / folder: `/docs`
-
-Or rely on `.github/workflows/pages.yml` (Actions must be allowed to write Pages).
 
 Local preview:
 

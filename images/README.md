@@ -2,22 +2,6 @@
 
 Canonical drawings for *The Illustrated Guide to Using AI*.
 
-The GitHub connector used to seed this repo truncates files around 2KB, so each JPEG is stored as numbered base64 parts:
-
-```
-images/cover-harbor-cast.jpg.b64.01
-images/cover-harbor-cast.jpg.b64.02
-...
-```
-
-Restore binaries (also copies into `docs/images/` for Pages):
-
-```bash
-python3 scripts/decode_images.py
-```
-
-Full-resolution originals and the print PDF live in the local working copy / release zip if you need them for `src/build_pdf.py`.
-
 | File | Scene |
 |---|---|
 | `cover-harbor-cast.jpg` | Cover — Luma and the harbor cast |
@@ -28,6 +12,7 @@ Full-resolution originals and the print PDF live in the local working copy / rel
 | `slm-pocket-mouse.jpg` | Scout the pocket mouse (SLM) |
 | `sdm-shopkeeper.jpg` | Dom the shopkeeper (SDM) |
 | `agents-backpack.jpg` | Agents |
+| `crews-supervisor.jpg` | Crews / supervisors |
 | `skills-shelf.jpg` | Skills |
 | `harness-rigging.jpg` | Harnesses |
 | `mcp-docks.jpg` | MCP docks |
