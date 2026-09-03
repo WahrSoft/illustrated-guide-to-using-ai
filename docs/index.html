@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Illustrated Guide to Using AI</title>
+  <meta name="description" content="A simple picture-book map of prompts, models, agents, skills, harnesses, MCP, and loops for professionals and leaders.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream:#fbf6ee; --ink:#2c2a26; --teal:#2a6f7a; --coral:#d96b5b; --mustard:#d4a84b; --navy:#1e3a5f; --panel:#f0e9dc; --rule:#c9bda8; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:"Libre Baskerville",Georgia,serif; line-height:1.55; }
+    a { color:var(--teal); }
+    header, article, footer { max-width:900px; margin:0 auto; padding:1.5rem 1.2rem; }
+    h1,h2 { font-family:"Playfair Display",Georgia,serif; color:var(--navy); }
+    h1 { font-size:clamp(1.8rem,4vw,2.5rem); margin-bottom:.3rem; }
+    .subtitle { color:var(--teal); font-style:italic; }
+    nav { display:flex; flex-wrap:wrap; gap:.4rem .8rem; font-size:.85rem; margin:1rem 0 2rem; }
+    nav a { text-decoration:none; border-bottom:1px solid var(--rule); }
+    section { margin:0 0 2rem; padding-bottom:1.5rem; border-bottom:1px solid var(--rule); }
+    .panel { background:var(--panel); border-top:3px solid var(--teal); padding:.85rem 1rem; font-size:.95rem; }
+    .panel.coral { border-top-color:var(--coral); }
+    .panel.mustard { border-top-color:var(--mustard); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.8rem; }
+    .card { background:#e8f2f3; border-radius:8px; padding:.9rem 1rem; }
+    .card:nth-child(even) { background:#f8f0dc; }
+    .card h3 { margin:0 0 .35rem; font-size:1rem; color:var(--teal); }
+    footer { text-align:center; color:#6b6458; font-size:.85rem; }
+    dt { color:var(--coral); font-weight:700; margin-top:.5rem; }
+    dd { margin:.1rem 0 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Illustrated Guide to Using AI</h1>
+    <p class="subtitle">How Luma Learned to Get Things Done</p>
+    <p>A shared language for professionals and leaders. Full illustrated PDF and images live in the repo package; this page is the publishable brief.</p>
+    <p><a href="https://github.com/WahrSoft/illustrated-guide-to-using-ai">Source on GitHub</a></p>
+  </header>
+  <nav>
+    <a href="#prompt">Prompts</a><a href="#llm">LLM</a><a href="#vllm">vLLM</a><a href="#slm">SLM</a><a href="#sdm">SDM</a>
+    <a href="#agents">Agents</a><a href="#skills">Skills</a><a href="#harness">Harnesses</a><a href="#mcp">MCP</a><a href="#loops">Loops</a>
+  </nav>
+  <article>
+    <section id="ask">
+      <h2>Once upon a time</h2>
+      <p>Luma lived in a crowded chat booth. Answers arrived like paper airplanes and blew away. The booth could talk. It could not do.</p>
+      <div class="panel coral">A chat box answers once and forgets. A working AI system keeps context, uses tools, and turns a request into finished work.</div>
+    </section>
+    <section id="prompt">
+      <h2>The folded note — Prompts</h2>
+      <p>A well-folded note names the job, the audience, the constraints, and what done looks like.</p>
+      <div class="panel mustard">A prompt is the instruction. Prompt engineering is writing it so the job is hard to misread. Context engineering is choosing what else rides with the ask.</div>
+    </section>
+    <section id="llm">
+      <h2>Library lion — LLM</h2>
+      <p>Leo has read so many stories he can start almost any one. A plan is still only words until someone packs the picnic.</p>
+      <div class="panel">An LLM is a general-purpose thinking engine. By itself it does not fetch calendars, open files, or finish work.</div>
+    </section>
+    <section id="vllm">
+      <h2>Serving kitchen — vLLM</h2>
+      <p>Leo is the cook. Vee is the kitchen that serves many plates at once.</p>
+      <div class="panel coral">vLLM is software that serves large models quickly to many users.</div>
+    </section>
+    <section id="slm">
+      <h2>Pocket mouse — SLM</h2>
+      <p>Scout does not know every story in the mountain. She knows the path right here.</p>
+      <div class="panel mustard">An SLM is a compact model: good, fast, and nearby.</div>
+    </section>
+    <section id="sdm">
+      <h2>Neighborhood shopkeeper — SDM</h2>
+      <p>Dom sells only maps of this neighborhood. Narrow on purpose. Sharp on purpose.</p>
+      <div class="panel">An SDM is a specialized domain model for one kind of work.</div>
+    </section>
+    <section id="agents">
+      <h2>The backpack — Agents</h2>
+      <p>An agent does not only answer. It acts: look something up, write a file, check the result, try again.</p>
+      <div class="panel coral">An agent is a model plus permission to use tools, running until the job is done or a person must step in.</div>
+    </section>
+    <section id="skills">
+      <h2>Recipe shelf — Skills</h2>
+      <p>You do not memorize every recipe. You open the right folder when the job matches.</p>
+      <div class="panel mustard">Skills are reusable playbooks an agent can load on demand.</div>
+    </section>
+    <section id="harness">
+      <h2>Safety rigging — Harnesses</h2>
+      <p>The lion is strong. The harness keeps the strength useful.</p>
+      <div class="panel">A harness is the runtime around an agent: tools, permissions, logs, budgets, and stop rules.</div>
+    </section>
+    <section id="mcp">
+      <h2>Universal dock — MCP</h2>
+      <p>Before MCP every tool spoke a private language. Now a dock is a dock.</p>
+      <div class="panel coral">MCP is a standard way to connect models to tools and data sources.</div>
+    </section>
+    <section id="loops">
+      <h2>Garden path — Loops</h2>
+      <p>THINK · ACT · LOOK · AGAIN. Not forever. Until the basket is ready.</p>
+      <div class="panel mustard">A loop is reason → act → observe → decide. Loop engineering is when to continue, retry, ask, or stop.</div>
+    </section>
+    <section>
+      <h2>Fog, fences, and checklists</h2>
+      <div class="grid">
+        <div class="card"><h3>Hallucinations</h3><p>Fluent is not the same as true.</p></div>
+        <div class="card"><h3>Grounding</h3><p>Tie answers to fetched pages and systems of record.</p></div>
+        <div class="card"><h3>Evals</h3><p>Did it pack what we asked? Can we measure that?</p></div>
+        <div class="card"><h3>Routing</h3><p>Mountain jobs to Leo. Pocket jobs to Scout.</p></div>
+        <div class="card"><h3>Workflows</h3><p>A fixed path of steps, vs a free-roaming agent.</p></div>
+        <div class="card"><h3>Tokens &amp; cost</h3><p>Every page in the satchel has a price.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Field glossary</h2>
+      <dl>
+        <dt>Prompt</dt><dd>The instruction — job, constraints, format, definition of done.</dd>
+        <dt>Context engineering</dt><dd>What else rides with the prompt: files, history, retrieved facts.</dd>
+        <dt>LLM / SLM / SDM</dt><dd>Large, small, or specialized-domain models.</dd>
+        <dt>vLLM</dt><dd>High-throughput serving for large models.</dd>
+        <dt>Agent</dt><dd>Model + tools + loop that acts toward a goal.</dd>
+        <dt>Skill</dt><dd>Reusable playbook loaded when the task matches.</dd>
+        <dt>Harness</dt><dd>Runtime: tools, memory, permissions, stop rules.</dd>
+        <dt>MCP</dt><dd>Model Context Protocol for tools and data.</dd>
+        <dt>RAG</dt><dd>Fetch facts, then answer.</dd>
+        <dt>Human-in-the-loop</dt><dd>A person approves high-impact steps.</dd>
+      </dl>
+    </section>
+  </article>
+  <footer>CC BY 4.0 · WahrSoft/illustrated-guide-to-using-ai</footer>
+</body>
+</html>
