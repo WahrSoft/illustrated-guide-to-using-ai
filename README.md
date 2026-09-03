@@ -55,11 +55,20 @@ The builder looks for typefaces under common system paths (Libre Baskerville, Lo
 
 ## Publish the HTML
 
-GitHub Pages is configured from the `docs/` folder on `main`.
+The site is the `docs/` folder. The publishing pipeline **runs on `main`**:
 
-1. Repo **Settings → Pages**
-2. Source: **Deploy from a branch**
-3. Branch: `main` / folder: `/docs`
+1. Push changes under `docs/` to `main`
+2. `.github/workflows/pages.yml` copies `docs/` onto the `gh-pages` branch
+3. GitHub Pages serves `https://wahrsoft.github.io/illustrated-guide-to-using-ai/`
+
+You can also trigger **Actions → Publish Pages from main → Run workflow**.
+
+Repo **Settings → Pages** should stay:
+
+- Source: **Deploy from a branch**
+- Branch: `gh-pages` / folder: `/ (root)`
+
+Do not use the `github-pages` environment + `actions/deploy-pages` path. That environment rejects deploys from `main`.
 
 Local preview:
 
