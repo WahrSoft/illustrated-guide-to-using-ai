@@ -18,6 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Decode images if stored as base64
+        run: |
+          if ls images/*.jpg.b64 >/dev/null 2>&1; then
+            python scripts/decode_images.py
+          fi
+          mkdir -p docs/images
+          if ls images/*.jpg >/dev/null 2>&1; then
+            cp -f images/*.jpg docs/images/ || true
+          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
