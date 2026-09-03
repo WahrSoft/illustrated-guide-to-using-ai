@@ -1,43 +1,27 @@
-name: Publish site
-
+name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: write
-
+  pages: write
+  id-token: write
 concurrency:
   group: pages
   cancel-in-progress: true
-
 jobs:
-  publish:
+  decode-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
+      - name: Decode illustration primitives
+        run: python3 scripts/decode_images.py
+      - uses: actions/upload-pages-artifact@v3
         with:
-          python-version: "3.12"
-
-      - name: Decode illustrations into docs/images
-        run: |
-          mkdir -p docs/images images
-          python scripts/decode_images.py || true
-          if ls images/*.jpg >/dev/null 2>&1; then
-            cp -f images/*.jpg docs/images/
-          fi
-          echo "docs/images:"
-          ls -la docs/images || true
-          test -f docs/index.html
-
-      - name: Publish docs to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          force_orphan: true
-          user_name: github-actions[bot]
-          user_email: github-actions[bot]@users.noreply.github.com
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4
